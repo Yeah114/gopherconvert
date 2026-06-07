@@ -46,7 +46,7 @@ type Conn interface {
 var _ Conn = (*minecraft.Conn)(nil)
 
 type EchoConn struct {
-	*minecraft.Conn
+	Conn
 
 	packets chan packet.Packet
 }
@@ -65,6 +65,6 @@ func (c *EchoConn) Packets() chan packet.Packet {
 	return c.packets
 }
 
-func NewEchoConn(conn *minecraft.Conn) Conn {
+func NewEchoConn(conn Conn) Conn {
 	return &EchoConn{Conn: conn, packets: make(chan packet.Packet, 32767)}
 }

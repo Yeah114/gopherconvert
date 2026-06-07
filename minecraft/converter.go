@@ -38,8 +38,8 @@ type MinecraftConverter struct {
 var _ define.MinecraftConverter = (*MinecraftConverter)(nil)
 
 func NewMinecraftConverter(clientConn define.Conn, serverConn define.Conn) *MinecraftConverter {
-	clientConnEcho := define.NewEchoConn(clientConn.(*minecraft.Conn))
-	serverConnEcho := define.NewEchoConn(serverConn.(*minecraft.Conn))
+	clientConnEcho := define.NewEchoConn(clientConn)
+	serverConnEcho := define.NewEchoConn(serverConn)
 	return &MinecraftConverter{
 		clientConn:     clientConn,
 		serverConn:     serverConn,
