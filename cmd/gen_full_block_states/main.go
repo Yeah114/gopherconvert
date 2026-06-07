@@ -82,9 +82,6 @@ func buildFullBlockStates() ([]bwo_define.BlockState, error) {
 	profiles := protocol.Profiles()
 	versions := make([]protocol.Profile, 0, len(profiles))
 	for _, profile := range profiles {
-		if profile.NetEase {
-			continue
-		}
 		versions = append(versions, profile)
 	}
 	sort.Slice(versions, func(i, j int) bool {
